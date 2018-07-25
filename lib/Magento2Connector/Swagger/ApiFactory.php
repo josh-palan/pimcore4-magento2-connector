@@ -49,6 +49,8 @@ class ApiFactory
 
     /**
      * @return mixed
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
      */
     private function getConfiguredApiClass()
     {
@@ -60,6 +62,8 @@ class ApiFactory
 
     /**
      * @return void
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
      */
     private function setAuthorizationHeader()
     {
@@ -69,6 +73,8 @@ class ApiFactory
 
     /**
      * @return string
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
      */
     private function getTokenHeader()
     {

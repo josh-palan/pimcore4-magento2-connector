@@ -9,8 +9,8 @@
 namespace Magento2Connector\Mapper;
 
 use Magento2Connector\Mapper\Helper\CategoryMapperHelper;
-use Pimcore\Model\Object\AbstractObject;
-use Pimcore\Model\Object\Category;
+use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\Category;
 use Swagger\Magento2Client\Model\CatalogDataCategoryInterface;
 
 /**
@@ -48,10 +48,10 @@ class CategoryMapper implements MapperInterface
         /** @var Category $category */
         return [
             'name'      => $category->getName(),
-            "parent_id" => $this->categoryHelper->getParentId($category),
-            "is_active" => true,
-            "position"  => 0,
-            "level"     => 0,
+            'parent_id' => $this->categoryHelper->getParentId($category),
+            'is_active' => true,
+            'position' => 0,
+            'level' => 0,
         ];
     }
 }

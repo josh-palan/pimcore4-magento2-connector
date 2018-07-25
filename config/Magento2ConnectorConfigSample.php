@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "magento2connector" => [
+    'magento2connector' => [
         'username' => '',
         'password' => '',
         'host'     => ''

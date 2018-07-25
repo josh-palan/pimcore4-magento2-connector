@@ -6,11 +6,11 @@ Magento2-connector is a plugin which allows to add, remove and modify Magento pr
 - [Magento 2 connector](#magento-2-connector)
 	- [Compatibility](#compatibility)
 	- [Requirements](#requirements)
-	- [Installing/Getting started](#installinggetting-started)
-	- [Features](#features)
+	- [Installing/Getting started](#installing/getting-started)
+	- [Features](#key-features)
 	- [Configuration](#configuration)
 	- [Contributing](#contributing)
-	- [Standards & Code Quality](#standards-code-quality)
+	- [Standards & Code Quality](#standards-&-code-quality)
 	- [About Authors](#about-authors)
 
 ## Compatibility
@@ -76,8 +76,6 @@ This module respects our own PHPCS and PHPMD rulesets.
 ## About Authors
 
 
-![Divante-logo](http://divante.co/wp-content/uploads/2017/07/divante-logo.png "Divante")
+FORKED FROM https://github.com/DivanteLtd/pimcore4-magento2-connector
 
-Founded in 2008 in Poland, Divante delivers high-quality e-business solutions. They support their clients in creating customized Omnichannel and eCommerce platforms, with expertise in CRM, ERP, PIM, custom web applications, and Big Data solutions. With 180 employees on board, Divante provides software expertise and user-experience design. Their team assists companies in their development and optimization of new sales channels by implementing eCommerce solutions, integrating systems, and designing and launching marketing campaigns.
-
-Visit our website [Divante.co](https://divante.co/ "Divante.co") for more information.
+Modified by Joshua Palan

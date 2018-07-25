@@ -9,8 +9,8 @@
 
 namespace Magento2Connector\Mapper;
 
-use Pimcore\Model\Object\AbstractObject;
-use Pimcore\Model\Object\Product;
+use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\MagentoBaseProduct as Product;
 use Swagger\Magento2Client\Model\CatalogDataProductInterface;
 
 /**
@@ -44,11 +44,12 @@ class ProductMapper implements MapperInterface
             'visibility'        => 1,
             'weight'            => $product->getWeight(),
             'type'              => 'simple',
-            "type_id"           => "simple",
+            'type_id'           => 'simple',
             'custom_attributes' => [
                 ['attribute_code' => 'category_ids', 'value' => $this->getCategoryIds($product)],
                 ['attribute_code' => 'description', 'value' => $product->getDescription()],
-                ['attribute_code' => 'short_description', 'value' => $product->getShortDescription()],
+                ['attribute_code' => 'short_description', 'value' => $product->getShort_description()],
+                ['attribute_code' => 'mfg_sku_number', 'value' => $product->getMfg_sku_number()],
             ]
         ];
     }

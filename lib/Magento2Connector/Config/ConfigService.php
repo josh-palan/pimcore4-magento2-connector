@@ -15,7 +15,7 @@ namespace Magento2Connector\Config;
 class ConfigService
 {
     /** @var string */
-    public static $configFile = PIMCORE_WEBSITE_PATH . "/var/plugins/Magento2Connector/Magento2ConnectorConfig.php";
+    public static $configFile;
 
     /** @var array */
     private $options = [
@@ -32,11 +32,13 @@ class ConfigService
      */
     public function __construct()
     {
+        self::$configFile = PIMCORE_WEBSITE_PATH . '/var/plugins/Magento2Connector/Magento2ConnectorConfig.php';
         $this->config = $this->getConfig();
     }
 
     /**
      * @param string $option
+     * @return
      */
     public function get($option)
     {
@@ -45,6 +47,7 @@ class ConfigService
 
     /**
      * @return \Zend_Config
+     * @throws \Exception
      */
     private function getConfig()
     {
@@ -62,7 +65,7 @@ class ConfigService
     {
         foreach ($this->options as $option) {
             if (empty($config->magento2connector->{$option})) {
-                throw new \Exception(sprintf("Property %s is not defined, check Your config file", $option));
+                throw new \Exception(sprintf('Property %s is not defined, check Your config file', $option));
             }
         }
     }
