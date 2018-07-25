@@ -9,7 +9,7 @@
 
 namespace Magento2Connector\Listener;
 
- use Magento2Connector\Swagger\ApiFactory;
+use Magento2Connector\Swagger\ApiFactory;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Category;
 use Pimcore\Model\DataObject\MagentoBaseProduct as Product;
@@ -40,6 +40,7 @@ class ListenerFactory
                 );
                 break;
 
+                // TODO: Are we doing category management? Need to look at request body more on this one...
             case $abstractObject instanceof Category:
                 $categoryRepositoryClass = $apiFactory->get('CatalogCategoryRepositoryV1Api');
                 return new CategoryCrudListener(

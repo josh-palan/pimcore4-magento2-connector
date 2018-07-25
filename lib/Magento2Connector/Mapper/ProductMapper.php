@@ -34,24 +34,32 @@ class ProductMapper implements MapperInterface
      */
     public function toArray(AbstractObject $product)
     {
+        $ConfigService  = new \Magento2Connector\Config\ConfigService();
+
+        $mapping = $ConfigService->get('mapping');
+
         /**@var Product $product */
-        return [
-            'sku'               => $product->getSku(),
-            'name'              => $product->getName(),
-            'attribute_set_id'  => 4,
-            'price'             => $product->getPrice(),
-            'status'            => 1,
-            'visibility'        => 1,
-            'weight'            => $product->getWeight(),
-            'type'              => 'simple',
-            'type_id'           => 'simple',
-            'custom_attributes' => [
-                ['attribute_code' => 'category_ids', 'value' => $this->getCategoryIds($product)],
-                ['attribute_code' => 'description', 'value' => $product->getDescription()],
-                ['attribute_code' => 'short_description', 'value' => $product->getShort_description()],
-                ['attribute_code' => 'mfg_sku_number', 'value' => $product->getMfg_sku_number()],
-            ]
-        ];
+        return $this->getBasedOnConfigRecusively($mapping, $product)['product'];
+    }
+
+    private function getBasedOnConfigRecusively($mapping, $product)
+    {
+        $interfaceArray = [];
+
+        foreach ($mapping as $property => $attribute) {
+            if (is_object($attribute)) {
+                $interfaceArray[$property] = $this->getBasedOnConfigRecusively($attribute, $product);
+            } else {
+                $method = 'get' . ucfirst($attribute);
+                if (method_exists($product, $method)) {
+                    $interfaceArray[$property] = $product->$method();
+                } else {
+                    // TODO: Do we want to throw exceptions here? Maybe just log instead?
+                }
+            }
+        }
+
+        return $interfaceArray;
     }
 
     /**
