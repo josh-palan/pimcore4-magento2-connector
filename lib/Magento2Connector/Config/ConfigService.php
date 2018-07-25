@@ -21,7 +21,8 @@ class ConfigService
     private $options = [
         'username',
         'password',
-        'host'
+        'host',
+        'mapping'
     ];
 
     /** @var \Zend_Config */

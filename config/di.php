@@ -1,16 +1,18 @@
 <?php
 /**
  * @category    Magento2Connector
- * @date        14/06/2017 09:25
- * @author      Bartosz Idzikowski <bidzikowski@divante.pl>
- * @copyright   2017 Divante Ltd. (https://divante.co)
+ * @date        7/25/18 9:55
+ * @author      Joshua Palan
+ *
+ * UPDATED 7/25/18 by Joshua Palan
  */
 
 try {
-    $ConfigService = new \Magento2Connector\Config\ConfigService();
-    $userName      = $ConfigService->get('username');
-    $password      = $ConfigService->get('password');
-    $host          = $ConfigService->get('host');
+    $ConfigService  = new \Magento2Connector\Config\ConfigService();
+    $userName       = $ConfigService->get('username');
+    $password       = $ConfigService->get('password');
+    $host           = $ConfigService->get('host');
+    $mapping        = $ConfigService->get('mapping');
 } catch (Exception $e) {
 }
 

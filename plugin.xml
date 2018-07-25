@@ -6,14 +6,14 @@
             <pluginName>Magento2Connector</pluginName>
 
             <!-- a short description -->
-			<pluginDescription><![CDATA[]]></pluginDescription>
+			<pluginDescription><![CDATA[Ties Pimcore's products and attributes to Magento 2]]></pluginDescription>
 
             <!-- meta data -->
             <pluginVersion>1.0</pluginVersion>
             <pluginRevision>1</pluginRevision>
             <pluginBuildTimestamp>0</pluginBuildTimestamp>
 
-            <pluginIframeSrc></pluginIframeSrc>
+            <pluginIframeSrc>/plugin/Magento2Connector/index/index</pluginIframeSrc>
 
             <!-- className of the plugin which extends Pimcore_API_Plugin_Abstract-->
 			<pluginClassName>\Magento2Connector\Plugin</pluginClassName>
