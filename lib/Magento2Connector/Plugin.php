@@ -63,11 +63,11 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
     protected function registerListeners()
     {
         \Pimcore::getEventManager()->attach(
-            ApiHandler::POST_UPDATE,
+            ApiHandler::OBJECT_POST_UPDATE,
             ["Magento2Connector\\ApiHandler", 'registerApiHandler']
         );
         \Pimcore::getEventManager()->attach(
-            ApiHandler::POST_DELETE,
+            ApiHandler::OBJECT_POST_DELETE,
             ["Magento2Connector\\ApiHandler", 'registerApiHandler']
         );
     }

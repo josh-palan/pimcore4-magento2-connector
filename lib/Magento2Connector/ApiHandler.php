@@ -21,8 +21,8 @@ use Zend_EventManager_Event as GenericEvent;
  */
 class ApiHandler
 {
-    const POST_UPDATE = 'object.postUpdate';
-    const POST_DELETE = 'object.postDelete';
+    const OBJECT_POST_UPDATE = 'object.postUpdate';
+    const OBJECT_POST_DELETE = 'object.postDelete';
 
     /**
      * @param GenericEvent $event
@@ -47,10 +47,10 @@ class ApiHandler
             }
 
             switch ($event->getName()) {
-                case self::POST_UPDATE:
+                case self::OBJECT_POST_UPDATE:
                     $listener->onPostUpdate($event);
                     break;
-                case self::POST_DELETE:
+                case self::OBJECT_POST_DELETE:
                     $listener->onPostDelete($event);
                     break;
             }
