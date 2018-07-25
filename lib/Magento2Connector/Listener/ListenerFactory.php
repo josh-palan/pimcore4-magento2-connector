@@ -10,9 +10,9 @@
 namespace Magento2Connector\Listener;
 
  use Magento2Connector\Swagger\ApiFactory;
-use Pimcore\Model\Object\AbstractObject;
-use Pimcore\Model\Object\Category;
-use Pimcore\Model\Object\Product;
+use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\Category;
+use Pimcore\Model\DataObject\MagentoBaseProduct as Product;
 
 /**
  * @class ListenerFactory
@@ -23,6 +23,8 @@ class ListenerFactory
     /**
      * @param AbstractObject $abstractObject
      * @return CrudListenerInterface
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
      */
     public static function getListener(AbstractObject $abstractObject)
     {

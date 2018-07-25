@@ -12,7 +12,7 @@ namespace Magento2Connector;
 use Magento2Connector\Exception\ListenerNotFoundException;
 use Magento2Connector\Listener\CrudListenerInterface;
 use Magento2Connector\Listener\ListenerFactory;
-use Pimcore\Model\Object\AbstractObject;
+use Pimcore\Model\DataObject\AbstractObject;
 use Zend_EventManager_Event as GenericEvent;
 
 /**
@@ -27,6 +27,8 @@ class ApiHandler
     /**
      * @param GenericEvent $event
      * @return void
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
      */
     public static function registerApiHandler(GenericEvent $event)
     {
@@ -55,7 +57,7 @@ class ApiHandler
         } catch (ListenerNotFoundException $listenerNotFoundException) {
             $apiLogger->info(
                 sprintf(
-                    "There is no handler for object type %s. Register listener for this case.",
+                    'There is no handler for object type %s. Register listener for this case.',
                     get_class($target)
                 )
             );

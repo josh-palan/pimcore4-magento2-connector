@@ -8,7 +8,7 @@
 
 namespace Magento2Connector\Swagger\RequestBodyBuilder;
 
-use Pimcore\Model\Object\AbstractObject;
+use Pimcore\Model\DataObject\AbstractObject;
 use Swagger\Magento2Client\Model\Body18;
 
 /**

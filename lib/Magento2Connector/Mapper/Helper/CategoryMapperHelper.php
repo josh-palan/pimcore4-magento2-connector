@@ -8,7 +8,7 @@
 
 namespace Magento2Connector\Mapper\Helper;
 
-use Pimcore\Model\Object\Category;
+use Pimcore\Model\DataObject\Category;
 
 /**
  * @class CategoryMapperHelper

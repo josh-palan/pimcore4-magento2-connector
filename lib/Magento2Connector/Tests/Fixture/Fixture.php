@@ -11,7 +11,7 @@ namespace Magento2Connector\Tests\Fixture;
 
 use Mockery\Mock;
 use Swagger\Magento2Client\Model\Body18;
-use Pimcore\Model\Object\Product;
+use Pimcore\Model\DataObject\MagentoBaseProduct as Product;
 
 /**
  * Class Fixture

@@ -8,7 +8,7 @@
 
 namespace Magento2Connector\Mapper;
 
-use Pimcore\Model\Object\AbstractObject;
+use Pimcore\Model\DataObject\AbstractObject;
 
 /**
  * @class MapperInterface

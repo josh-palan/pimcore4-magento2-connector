@@ -10,8 +10,8 @@
 namespace Magento2Connector\Listener;
 
 use Magento2Connector\Swagger\RequestBodyBuilder\RequestBodyBuilderInterface;
-use Pimcore\Model\Object\AbstractObject;
-use Pimcore\Model\Object\Product;
+use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\MagentoBaseProduct as Product;
 use Swagger\Magento2Client\Api\CatalogProductRepositoryV1Api;
 use Swagger\Magento2Client\Model\Body18;
 use Zend_EventManager_Event as GenericEvent;
@@ -45,6 +45,7 @@ class ProductCrudListener extends CrudListenerAbstract
     /**
      * @param GenericEvent $event
      * @return bool
+     * @throws \Swagger\Magento2Client\ApiException
      */
     public function onPostDelete(GenericEvent $event)
     {
@@ -60,6 +61,7 @@ class ProductCrudListener extends CrudListenerAbstract
      * @param AbstractObject $product
      * @param Body18 $productBody
      * @return void
+     * @throws \Swagger\Magento2Client\ApiException
      */
     protected function createOrUpdate($isCreated, AbstractObject $product, $productBody)
     {

@@ -40,10 +40,11 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
 
     /**
      * @return void
+     * @throws \Zend_EventManager_Exception_InvalidArgumentException
      */
     protected function addDependencyInjection()
     {
-        \Pimcore::getEventManager()->attach("system.di.init", function ($event) {
+        \Pimcore::getEventManager()->attach('system.di.init', function ($event) {
             /** @var Zend_EventManager_Event $event */
             /** @var ContainerBuilder $builder */
             $builder  = $event->getTarget();
@@ -57,16 +58,17 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
 
     /**
      * @return void
+     * @throws \Zend_EventManager_Exception_InvalidArgumentException
      */
     protected function registerListeners()
     {
         \Pimcore::getEventManager()->attach(
             ApiHandler::POST_UPDATE,
-            ["Magento2Connector\\ApiHandler", "registerApiHandler"]
+            ["Magento2Connector\\ApiHandler", 'registerApiHandler']
         );
         \Pimcore::getEventManager()->attach(
             ApiHandler::POST_DELETE,
-            ["Magento2Connector\\ApiHandler", "registerApiHandler"]
+            ["Magento2Connector\\ApiHandler", 'registerApiHandler']
         );
     }
 
@@ -78,9 +80,9 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
         Installer::install();
 
         if (self::isInstalled()) {
-            $statusMessage = "Installed";
+            $statusMessage = 'Installed';
         } else {
-            $statusMessage = "Not installed";
+            $statusMessage = 'Not installed';
         }
 
         return $statusMessage;
@@ -99,7 +101,7 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
      */
     public static function isInstalled()
     {
-        if (file_exists(PIMCORE_WEBSITE_PATH . "/var/plugins/Magento2Connector/Magento2ConnectorConfig.php")) {
+        if (file_exists(PIMCORE_WEBSITE_PATH . '/var/plugins/Magento2Connector/Magento2ConnectorConfig.php')) {
             return true;
         }
 

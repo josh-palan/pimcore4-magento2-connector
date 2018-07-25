@@ -10,7 +10,7 @@ namespace Magento2Connector\Listener;
 
 use Magento2Connector\Listener\Helper\ListenerHelper;
 use Magento2Connector\Swagger\RequestBodyBuilder\RequestBodyBuilderInterface;
-use Pimcore\Model\Object\AbstractObject;
+use Pimcore\Model\DataObject\AbstractObject;
 use Swagger\Magento2Client\ApiException;
 use Zend_EventManager_Event as GenericEvent;
 use Zend_EventManager_EventManager as EventManager;

@@ -41,6 +41,7 @@ class TokenProvider
 
     /**
      * @return string
+     * @throws \Swagger\Magento2Client\ApiException
      */
     public function getToken()
     {

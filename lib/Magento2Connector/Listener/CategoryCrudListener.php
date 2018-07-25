@@ -10,8 +10,8 @@
 namespace Magento2Connector\Listener;
 
 use Magento2Connector\Swagger\RequestBodyBuilder\RequestBodyBuilderInterface;
-use Pimcore\Model\Object\AbstractObject;
-use Pimcore\Model\Object\Category;
+use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\Category;
 use Swagger\Magento2Client\Api\CatalogCategoryRepositoryV1Api;
 use Swagger\Magento2Client\Model\Body30;
 use Zend_EventManager_Event as GenericEvent;
@@ -44,6 +44,7 @@ class CategoryCrudListener extends CrudListenerAbstract
     /**
      * @param GenericEvent $event
      * @return bool
+     * @throws \Swagger\Magento2Client\ApiException
      */
     public function onPostDelete(GenericEvent $event)
     {
@@ -59,6 +60,7 @@ class CategoryCrudListener extends CrudListenerAbstract
      * @param AbstractObject $category
      * @param Body30 $categoryBody
      * @return void
+     * @throws \Swagger\Magento2Client\ApiException
      */
     protected function createOrUpdate($isCreated, AbstractObject $category, $categoryBody)
     {
